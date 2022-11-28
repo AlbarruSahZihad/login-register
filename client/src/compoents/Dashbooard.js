@@ -44,7 +44,7 @@ function Deshbooard() {
             </nav>
             <div className='container-fluid bg-light'>
                 <div className='container py-5'>
-                    Selamat datang <b>{username}</b>
+                    Selamat datang <b>{username}</b> !
                     <p>ini adalah halaman deshboard implementasi Login dan Register menngunakan ReactJs-ExpressJs_mysql</p>
                     <blockquote>
                         harapanya dengan pembelajaran ini peserta didik sudah mampu unutk membuat dan mengemplementasikan
@@ -52,7 +52,7 @@ function Deshbooard() {
                 </div>
             </div>
             <div className='container-fluid fixed-buttom py-3 text-center bg-secondary text-light'>
-                CopyRight &copy; Al Barru Sah Zihad - 2022
+                CopyRight &copy; Al Barru Sah Zihad Sitorus Pane- 2022
             </div>
         </>
     )
