@@ -24,15 +24,15 @@ function Login() {
             setMsgpassword("passwordnya juga dong")
             setMsgusername("")
         }else{
-            Axios.post("http://localhost:30001/login",{
+            Axios.post("http://localhost:3001/login",{
                 username: username,
                 password: password,
-            } ).then((respnose) => {
-                if(respnose.data.massage) {
-                    setStatus(respnose.data.massage);
+            } ).then((response) => {
+                if(response.data.massage) {
+                    setStatus(response.data.massage);
                 }else {
-                    sessionStorage.setItem('token',respnose.data);
-                    navigate('/dashboard')
+                    sessionStorage.setItem('token',response.data);
+                    navigate('/deshboard');
                 }
             } )
         }
@@ -42,9 +42,9 @@ function Login() {
         if(sessionStorage.getItem("token") === null) {
             navigate('/');
         }else {
-            navigate('/deshboard')
+            navigate('/deshboard');
         }
-    }, [navigate])
+    }, [navigate]);
 
 
 
@@ -60,15 +60,15 @@ function Login() {
             <hr/>
             <div className='form-group'>
                 <label>Username:</label>
-                <input type='text'  className='form-control' onChange={(e => {
-                    setUsename(e.target.value) })}/>
+                <input type='text'  className='form-control' onChange={(e) => {
+                    setUsename(e.target.value) }}/>
                 <b className='text-danger'>{msgusername}</b>
             </div>
 
             <div className='form-group'>
                 <label>Password   :</label>
-                <input type='password'className='form-control' onChange={(e => {
-                    setPassword(e.target.value) })}/>
+                <input type='password'className='form-control' onChange={(e) => {
+                    setPassword(e.target.value) }}/>
                     <b className='text-danger'>{msgpassword}</b>
             </div>
 
@@ -77,7 +77,7 @@ function Login() {
                 Login
             </button>
             </div>
-
+            <div className="text-danger my-1">{status}</div>
             <p>
                 Don't have  Account? please <Link to='/register'>Register Click Here!!</Link> 
             </p>

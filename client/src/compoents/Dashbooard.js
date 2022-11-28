@@ -21,10 +21,10 @@ function Deshbooard() {
     } 
 
     useEffect(() => {
-        if(sessionStorage.getItem ('token') === null) {
+        if(sessionStorage.getItem('token') === null) {
                 navigate('/');   
         }else{
-            navigate('deshboard');
+            navigate('/deshboard');
         }
     }, [navigate]);
 

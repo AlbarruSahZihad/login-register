@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Link} from 'react-router-dom'
+import { Link, Navigate, useNavigate} from 'react-router-dom';
 import Axios from 'axios'
 
+Axios.defaults.withCredentials = true;
 
 function Register() {
     const[username,setUsename] =useState('');
@@ -10,6 +11,8 @@ function Register() {
     const[msgusername,setMsgusername] =useState('');
     const[msgpassword,setMsgpassword] =useState('');
     const[msgnama,setMsgNama] =useState('');
+
+    let navigate = useNavigate();
 
 
     // function untuk handle proses login
@@ -34,6 +37,7 @@ function Register() {
             }).then((response) => {
                 console.log(response);
             });
+            navigate('/');
         }
     }
 
@@ -50,22 +54,22 @@ function Register() {
             <hr/>
             <div className='form-group'>
                 <label>Username:</label>
-                <input type='text'  className='form-control' onChange={(e => {
-                    setUsename(e.target.value) })}/>
+                <input type='text'  className='form-control' onChange={(e) => {
+                    setUsename(e.target.value) }}/>
                 <b className='text-danger'>{msgusername}</b>
             </div>
             
             <div className='form-group'>
                 <label>Password   :</label>
-                <input type='password'className='form-control' onChange={(e => {
-                    setPassword(e.target.value) })}/>
+                <input type='password'className='form-control' onChange={(e) => {
+                    setPassword(e.target.value) }}/>
                     <b className='text-danger'>{msgpassword}</b>
             </div>
             
             <div className='form-group'>
                 <label>Nama   :</label>
-                <input type='text'className='form-control' onChange={(e => {
-                    setNama(e.target.value) })}/>
+                <input type='text'className='form-control' onChange={(e) => {
+                    setNama(e.target.value) }}/>
                     <b className='text-danger'>{msgnama}</b>
             </div>
 
